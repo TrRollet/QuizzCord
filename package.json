@@ -1,0 +1,29 @@
+{
+  "name": "quizzcord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrRollet/QuizzCord.git"
+  },
+  "keywords": [
+    "discord",
+    "quizz"
+  ],
+  "author": "TrRollet",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/TrRollet/QuizzCord/issues"
+  },
+  "homepage": "https://github.com/TrRollet/QuizzCord#readme",
+  "dependencies": {
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
