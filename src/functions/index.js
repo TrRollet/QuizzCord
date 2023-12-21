@@ -84,6 +84,9 @@ class Quizz {
 	 * @throws {Error} If the state is invalid.
 	 */
     async init(state) {
+		if (!new.target) {
+			throw new Error('init must be called with await.');
+		}
         if (state) {
             if (typeof state !== 'object' || state === null) {
                 throw new Error('State must be a non-null object.');
@@ -125,6 +128,9 @@ class Quizz {
 	 * @throws {Error} If an error occurs while deleting the quizz.
 	 */
 	async delete() {
+		if (!new.target) {
+			throw new Error('delete must be called with await.');
+		}
 		try {
 			if (this.questions == []) {
 				return false;
@@ -161,6 +167,9 @@ class Quizz {
 	 * @throws {Error} If an error occurs while inserting the question or answers to the quizz.
 	 */
 	async addQuestion(question, answers) {
+		if (!new.target) {
+			throw new Error('addQuestion must be called with await.');
+		}
 		// Validate inputs
 		if (typeof question !== 'string' || question.trim() === '') {
 			throw new Error('Question must be a non-empty string.');
@@ -307,6 +316,10 @@ class Quizz {
 	 * @throws {Error} If an error occurs while retrieving the score from the quizz.
 	 */
 	async getScore(player_id) {
+		if (!new.target) {
+			throw new Error('getScore must be called with await.');
+		}
+
 		const exists = this.score.hasOwnProperty(player_id);
 		if (!exists) {
 			return undefined;
@@ -344,6 +357,9 @@ class Quizz {
 	 * @throws {Error} If an error occurs while checking the answer.
 	 */
 	async checkAnswer(player_id, answer) {
+		if (!new.target) {
+			throw new Error('checkAnswer must be called with await.');
+		}
 		// Validate inputs
 		if (player_id === undefined || player_id === null) {
 			throw new Error('Player ID must be defined.');
@@ -419,6 +435,9 @@ class Quizz {
 	 * @throws {Error} If an error occurs while resetting the quizz.
 	 */
 	async reset() {
+		if (!new.target) {
+			throw new Error('reset must be called with await.');
+		}
 		try {
 			this.currentQuestionIndex = 0;
 			this.score = {};
@@ -444,6 +463,9 @@ class Quizz {
 	 * @throws {Error} If the index is out of bounds or if an error occurs while removing the question from the quizz.
 	 */
 	async removeQuestion(index) {
+		if (!new.target) {
+			throw new Error('removeQuestion must be called with await.');
+		}
 		if (index < 0 || index >= this.questions.length) {
 			throw new Error('Index out of bounds.');
 		}
@@ -476,6 +498,9 @@ class Quizz {
 	 * 
 	 */
 	async addAnswerToQuestion(index, answer) {
+		if (!new.target) {
+			throw new Error('addAnswerToQuestion must be called with await.');
+		}
 		if (index < 0 || index >= this.questions.length) {
 			throw new Error('Index out of bounds.');
 		}
@@ -508,6 +533,9 @@ class Quizz {
 	 * @throws {Error} If the index is out of bounds or if an error occurs while removing the answer from the question.
 	 */
 	async removeAnswerFromQuestion(index, answer) {
+		if (!new.target) {
+			throw new Error('removeAnswerFromQuestion must be called with await.');
+		}
 		if (index < 0 || index >= this.questions.length) {
 			throw new Error('Index out of bounds.');
 		}
