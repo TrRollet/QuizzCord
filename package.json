@@ -41,6 +41,7 @@
     "url": "https://github.com/TrRollet/QuizzCord/issues"
   },
   "homepage": "https://github.com/TrRollet/QuizzCord#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
