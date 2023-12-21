@@ -487,6 +487,38 @@ class Quizz {
 		// Add the answer to the local array
 		this.questions[index].answers.push(answer);
 	}
+
+	/**
+	 * Remove an answer from a question.
+	 * 
+	 * Example usage:
+	 * 
+	 * ```javascript
+	 * const quizz = new Quizz();
+	 * await quizz.init();
+	 * await quizz.addQuestion('What is 2 + 2?', ['4', 'four']);
+	 * await quizz.removeAnswerFromQuestion(0, 'four');  // Removes the answer 'four' from the question at index 0
+	 * ```
+	 * 
+	 * @param {number} index - The index of the question to remove an answer from.
+	 * @param {string} answer - The answer to remove.
+	 * @return {Promise<void>} A promise that resolves when the answer has been removed from the question.
+	 * @throws {Error} If the index is out of bounds or if an error occurs while removing the answer from the question.
+	 */
+	async removeAnswerFromQuestion(index, answer) {
+		if (index < 0 || index >= this.questions.length) {
+			throw new Error('Index out of bounds.');
+		}
+		
+		// Check if the answer already exists in the question
+		const exists = this.questions[index].answers.some(a => a === answer);
+		if (!exists) {
+			throw new Error('Answer does not exist.');
+		}
+		
+		// Add the answer to the local array
+		this.questions[index].answers.splice(index, 1);
+	}
 	
 	/**
 	 * Save the current state of the quizz.
@@ -507,7 +539,7 @@ class Quizz {
 		return {
 			questions: this.questions,
 			currentQuestionIndex: this.currentQuestionIndex,
-			score: {}
+			score: this.score
 		};
 	}
 }

@@ -1,7 +1,7 @@
 {
   "name": "quizzcord",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.6",
+  "description": "A simple quizz package for discord bots where you can create your own quizz and play with your friends or with the community !",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
@@ -12,7 +12,28 @@
   },
   "keywords": [
     "discord",
-    "quizz"
+    "quizz",
+    "bot",
+    "discord-bot",
+    "discordjs",
+    "discord.js",
+    "question",
+    "questions",
+    "quizzcord",
+    "answer",
+    "trivia",
+    "trivia-bot",
+    "trivia-quiz",
+    "trivia-game",
+    "game",
+    "games",
+    "quiz",
+    "quizzes",
+    "trivia-quiz-bot",
+    "fun",
+    "easy",
+    "simple",
+    "setup"
   ],
   "author": "TrRollet",
   "license": "Apache-2.0",
@@ -20,10 +41,6 @@
     "url": "https://github.com/TrRollet/QuizzCord/issues"
   },
   "homepage": "https://github.com/TrRollet/QuizzCord#readme",
-  "dependencies": {
-    "sqlite3": "^5.1.6"
-  },
-  "devDependencies": {
-    "jest": "^27.5.1"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
