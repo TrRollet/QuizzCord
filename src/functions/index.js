@@ -280,9 +280,7 @@ class Quizz {
 	 * @return {boolean} True if the quizz moved to the next question, false otherwise.
 	 */
 	nextQuestion() {
-		if (this.currentQuestionIndex < this.questions.length - 1) {
-			this.currentQuestionIndex++;
-		}
+		this.currentQuestionIndex++;
 	}
 
 	/**
