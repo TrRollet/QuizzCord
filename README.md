@@ -40,7 +40,7 @@ if (correct) {
 	question = quizz.getQuestion();
 	if (!question) {
 		quizz.getLeaderboard((leaderboard) => {
-			// [{ userId: '123456789', score: 2 }, { userId: '987654321', score: 1 }}]
+			// [{ player_id: '123456789', score: 2 }, { player_id: '987654321', score: 1 }}]
 		});
 	}
 	// Send the question to the channel
@@ -67,13 +67,13 @@ Check if the answer is correct. Returns a promise that resolves to a boolean.
 ##### `nextQuestion()`
 Go to the next question.
 
-##### `getScore(userId)`
+##### `getScore(player_id)`
 Get the score of a user. Returns a promise that resolves to an integer.
 
 ##### `getLeaderboard()`
 Get the leaderboard. Returns an array of objects sorted by score with this structure:
 ```js
-[{ userId: '123456789', score: 2 }, { userId: '987654321', score: 1 }]
+[{ player_id: '123456789', score: 2 }, { player_id: '987654321', score: 1 }]
 ```
 
 ##### `getAllQuestions()`
