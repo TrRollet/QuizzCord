@@ -31,7 +31,7 @@ createQuizz = async () {
 // async function
 let question = quizz.getQuestion();
 const answer = "Paris";
-const correct = await quizz.checkAnswer(answer); // If the answer is correct, the score of the user is incremented (custom points in future versions)
+const correct = await quizz.checkAnswer(user.id, answer); // If the answer is correct, the score of the user is incremented (custom points in future versions)
 if (correct) {
 	let score = quizz.getScore(user.id);
 	quizz.nextQuestion();
