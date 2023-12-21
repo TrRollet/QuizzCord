@@ -1,7 +1,7 @@
 {
   "name": "quizzcord",
   "version": "1.0.1",
-  "description": "A simple quizz bot for discord where you can create your own quizz and play with your friends or with the community !",
+  "description": "A simple quizz package for discord bots where you can create your own quizz and play with your friends or with the community !",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
