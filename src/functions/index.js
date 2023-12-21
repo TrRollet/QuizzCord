@@ -354,6 +354,10 @@ class Quizz {
 		if (typeof answer !== 'string' || answer.trim() === '') {
 			throw new Error('Answer must be a non-empty string.');
 		}
+		// If there is no question left, return false
+		if (this.currentQuestionIndex >= this.questions.length) {
+			return false;
+		}
 		try {
 			if (!this.score.hasOwnProperty(player_id)) {
 				this.score[player_id] = 0;
