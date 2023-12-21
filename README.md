@@ -1,11 +1,12 @@
 # Quizzcord
-[![Quizzcord](https://raw.githubusercontent.com/TrRollet/QuizzCord/main/assets/logo.jpg)](https://www.npmjs.com/package/quizzcord)
+<img src="https://raw.githubusercontent.com/TrRollet/QuizzCord/main/assets/logo.jpg" width="200" height="200">
+
 [![npm](https://img.shields.io/npm/v/quizzcord.svg)](https://www.npmjs.com/package/quizzcord)
 [![npm](https://img.shields.io/npm/dt/quizzcord.svg)](https://www.npmjs.com/package/quizzcord)
-[![Support Server](https://img.shields.io/discord/565838133447710978.svg?color=7289da&label=Support%20Server&logo=discord&style=flat-square)](https://discord.gg/fqHd6GBraG)
+[![Support Server](https://img.shields.io/discord/1187360104371208226.svg?color=7289da&label=Support%20Server&logo=discord&style=flat-square)](https://discord.gg/fqHd6GBraG)
 [![GitHub](https://img.shields.io/github/license/TrRollet/QuizzCord.svg)](https://github.com/TrRollet/QuizzCord/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/TrRollet/QuizzCord.svg?style=social&label=Stars)](https://github.com/TrRollet/QuizzCord/stargazers)
-[![Version](https://img.shields.io/badge/Version-1.0.1-blue)](https://npmjs.com/package/quizzcord)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://npmjs.com/package/quizzcord)
 
 ## 📖 Description
 A simple quizz module for Discord.js bots. It allows you to create a quizz with questions and answers, and to check if the answers are correct. It also allows you to get the score of a user and the leaderboard.
