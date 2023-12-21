@@ -539,7 +539,7 @@ class Quizz {
 		return {
 			questions: this.questions,
 			currentQuestionIndex: this.currentQuestionIndex,
-			score: {}
+			score: this.score
 		};
 	}
 }
