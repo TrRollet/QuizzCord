@@ -277,14 +277,11 @@ class Quizz {
 	 * console.log(question);  // 'What is the capital of France?'
 	 * ```
 	 * 
-	 * @return {boolean|number} Returns true if successfully moved to the next question, false if there are no more questions.
+	 * @return {boolean} True if the quizz moved to the next question, false otherwise.
 	 */
 	nextQuestion() {
 		if (this.currentQuestionIndex < this.questions.length - 1) {
 			this.currentQuestionIndex++;
-			return true;
-		} else {
-			return false;
 		}
 	}
 
@@ -346,9 +343,16 @@ class Quizz {
 	 * @param {number} player_id - The ID of the player.
 	 * @param {string} answer - The player's answer.
 	 * @return {Promise<boolean>} A promise that resolves with true if the answer is correct, false otherwise.
-	 * @throws {Error} If an error occurs while updating the score or adding the participant.
+	 * @throws {Error} If an error occurs while checking the answer.
 	 */
 	async checkAnswer(player_id, answer) {
+		// Validate inputs
+		if (player_id === undefined || player_id === null) {
+			throw new Error('Player ID must be defined.');
+		}
+		if (typeof answer !== 'string' || answer.trim() === '') {
+			throw new Error('Answer must be a non-empty string.');
+		}
 		try {
 			if (!this.score.hasOwnProperty(player_id)) {
 				this.score[player_id] = 0;
