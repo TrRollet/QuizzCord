@@ -346,7 +346,7 @@ class Quizz {
 	 * @param {number} player_id - The ID of the player.
 	 * @param {string} answer - The player's answer.
 	 * @return {Promise<boolean>} A promise that resolves with true if the answer is correct, false otherwise.
-	 * @throws {Error} If an error occurs while updating the points or adding the participant.
+	 * @throws {Error} If an error occurs while updating the score or adding the participant.
 	 */
 	async checkAnswer(player_id, answer) {
 		try {
@@ -355,14 +355,12 @@ class Quizz {
 			}
 
 			// Compare the answer to the correct answer in a case-insensitive manner
-			const correctAnswer = this.questions[this.currentQuestionIndex].correctAnswer;
-			if (answer.toLowerCase() === correctAnswer.toLowerCase()) {
-				// If the answer is correct, update the points
-				this.score[player_id]+=1;
-				return true;
-			} else {
-				return false;
+			const anwsers = this.questions[this.currentQuestionIndex].answers;
+			const correct = anwsers.some(a => a.toLowerCase() === answer.toLowerCase());
+			if (correct) {
+				this.score[player_id]++;
 			}
+			return correct;
 		} catch (err) {
 			throw new Error('An error occurred while checking the answer: ' + err.message);
 		}
@@ -371,7 +369,7 @@ class Quizz {
 	/**
 	 * Get the leaderboard.
 	 * 
-	 * This method retrieves the leaderboard from the quizz. The leaderboard is an array of objects, each representing a player. Each object has properties 'player_id' and 'points'.
+	 * This method retrieves the leaderboard from the quizz. The leaderboard is an array of objects, each representing a player. Each object has properties 'player_id' and 'score'.
 	 * 
 	 * Example usage:
 	 * 
@@ -384,12 +382,11 @@ class Quizz {
 	 * ```
 	 * 
 	 * @param {function} callback - A callback function to be called with the leaderboard.
-	 * @return {Promise<void>} A promise that resolves when the leaderboard has been retrieved.
 	 * @throws {Error} If an error occurs while retrieving the leaderboard from the quizz.
 	 */
-	async getLeaderboard(callback) {
+	getLeaderboard(callback) {
 		try {
-			const leaderboard = this.score.sort((a, b) => b.points - a.points);
+			const leaderboard = Array.from(Object.entries(this.score), ([player_id, score]) => ({ player_id, score }));
 			callback(leaderboard);
 		} catch (err) {
 			throw new Error('An error occurred while retrieving the leaderboard: ' + err.message);
@@ -508,9 +505,9 @@ class Quizz {
 	 */
 	saveState() {
 		return {
-			id: this.id,
 			questions: this.questions,
-			currentQuestionIndex: this.currentQuestionIndex
+			currentQuestionIndex: this.currentQuestionIndex,
+			score: {}
 		};
 	}
 }

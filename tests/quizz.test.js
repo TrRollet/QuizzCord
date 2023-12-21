@@ -48,9 +48,9 @@ describe('Quizz', () => {
 		await quizz.addQuestion('What is 2 + 2?', ['4', 'four']);
 		const state = quizz.saveState();
 		expect(state).toEqual({
-			id: quizz.id,
 			questions: [{ question: 'What is 2 + 2?', answers: ['4', 'four'] }],
-			currentQuestionIndex: 0
+			currentQuestionIndex: 0,
+			score: {}
 		});
   	});
 
@@ -69,9 +69,9 @@ describe('Quizz', () => {
 	test('saveState returns an empty state when the quizz is empty', () => {
 		const state = quizz.saveState();
 		expect(state).toEqual({
-			id: quizz.id,
 			questions: [],
-			currentQuestionIndex: 0
+			currentQuestionIndex: 0,
+			score: {}
 		});
 	});
 
@@ -96,5 +96,25 @@ describe('Quizz', () => {
 		await quizz2.init(state);
 		expect(quizz2.questions).toEqual(state.questions);
 		expect(quizz2.currentQuestionIndex).toEqual(state.currentQuestionIndex);
+	});
+
+	test('getLeaderboard returns the leaderboard', async () => {
+		// Add some questions and simulate some answers
+		await quizz.addQuestion('What is 2 + 2?', ['4', 'four']);
+		await quizz.addQuestion('What is the capital of France?', ['Paris']);
+		await quizz.addQuestion('What is the capital of Spain?', ['Madrid']);
+		await quizz.checkAnswer('user1', '4');
+		await quizz.nextQuestion();
+		await quizz.checkAnswer('user2', 'Paris');
+		await quizz.nextQuestion();
+		await quizz.checkAnswer('user1', 'Madrid');
+
+		// Get the leaderboard
+		quizz.getLeaderboard((leaderboard) => {
+			expect(leaderboard).toEqual([
+				{ player_id: 'user1', score: 2 },
+				{ player_id: 'user2', score: 1 }
+			]);
+		});
 	});
 });
