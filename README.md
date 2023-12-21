@@ -76,6 +76,25 @@ Get the leaderboard. Returns an array of objects sorted by score with this struc
 ```js
 [{ userId: '123456789', score: 2 }, { userId: '987654321', score: 1 }]
 ```
+
+##### `getAllQuestions()`
+Get all the questions. Returns an array of objects with this structure:
+```js
+[{ question: 'What is the capital of France?', answers: ['Paris'] }, { question: 'What is 2+2?', answers: ['4', 'four'] }]
+```
+
+##### `getAllAnswers()`
+Get all the answers of the current question. Returns an array of strings.
+
+##### `removeQuestion(index)`
+Remove a question. The index is the index of the question in the array returned by `getAllQuestions` (starting at 0).
+
+##### `addAnswerToQuestion(index, answer)`
+Add an answer to a question. The index is the index of the question in the array returned by `getAllQuestions` (starting at 0).
+
+##### `removeAnswerFromQuestion(index, answer)`
+Remove an answer from a question. The index is the index of the question in the array returned by `getAllQuestions` (starting at 0).
+
 ##### `reset()`
 Reset the quizz by removing scores but keeping questions and answers.
 
