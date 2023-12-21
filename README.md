@@ -1,5 +1,6 @@
 # Quizzcord
-[![Quizzcord](https://raw.githubusercontent.com/TrRollet/QuizzCord/main/assets/logo.jpg)](https://www.npmjs.com/package/quizzcord)
+<img src="https://raw.githubusercontent.com/TrRollet/QuizzCord/main/assets/logo.jpg" width="200" height="200">
+
 [![npm](https://img.shields.io/npm/v/quizzcord.svg)](https://www.npmjs.com/package/quizzcord)
 [![npm](https://img.shields.io/npm/dt/quizzcord.svg)](https://www.npmjs.com/package/quizzcord)
 [![Support Server](https://img.shields.io/discord/565838133447710978.svg?color=7289da&label=Support%20Server&logo=discord&style=flat-square)](https://discord.gg/fqHd6GBraG)
